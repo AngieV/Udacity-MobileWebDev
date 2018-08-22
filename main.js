@@ -11,6 +11,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/js/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
 });
 
 /**
@@ -160,8 +171,12 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  const image_source = DBHelper.imageUrlForRestaurant(restaurant);
+  // image_source.slice(0,-4) removes .jpg or other extension from image name
+  image.src = image_source;
+  image.srcset =`${image_source.slice(0,-4)}_sm.jpg 250w, ${image_source.slice(0,-4)}_md.jpg 350w, ${image_source.slice(0,-4)}_lg.jpg 600w, ${image_source.slice(0,-4)}.jpg 800w`;
   image.alt = `photo of ${restaurant.name}`;
+  image.sizes = `90%vw, 270px`;
   li.append(image);
 
   const name = document.createElement('h2');

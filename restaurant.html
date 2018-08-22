@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
@@ -10,6 +9,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Restaurant Info</title>
+
+  <style>
+    @media screen and (max-width: 450px){
+      /* use this query for handheld devices */
+      /* header { width: 100%; order: 1; }
+      nav { width: 100%; order: 3; }
+      #map { width: 100%; order: 2; }
+      #restaurant-reviews { width: 100%; order: 4; } */
+
+    }
+
+    @media screen and (min-width: 451px) {
+      /* use this query for tablets */
+      #maincontent {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      img {
+        transition: width 0.5s;
+        width: 270px;
+      }
+    }
+
+    @media screen and (min-width: 800px){
+      /* use this query for desktop/laptops */
+
+      nav { width: 100%; order: -1; }
+      #map { width: 50%; order: 2; }
+      #restaurant-reviews { width: 50%; }
+
+      #map {
+        width: 50%;
+        height: 100vh;
+      }
+    }
+
+  </style>
+
 </head>
 
 <body class="inside">
@@ -23,7 +60,7 @@
   <main id="maincontent">
     <!-- Beginning nav/breadcrumb-->
     <nav id="breadcrumb">
-      <p><a href="/">Home</a></p>
+      <a href="/">Home</a>
     </nav>
     <!-- End nav/breadcrumb <a href="/">Restaurant Reviews</a> reason for link??-->
 

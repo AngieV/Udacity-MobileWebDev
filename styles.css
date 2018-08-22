@@ -1,27 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
-@media screen and (max-width: 450px){
-	/* use this query for handheld devices */
-
-}
-
-@media screen and (min-width: 451px) and (max-width: 750px){
-	/* use this query for tablets */
-
-}
-
-@media screen and (min-width: 1100px){
-	/* use this query for desktop/laptops */
-
-}
-
  /* TODO
-  *  center li containers responsively
-	*  set a global of min-width: 395px ???;
-	*  convert the images to responsive
+  *  set a global of min-width: 395px ???;
 	*  add serviceworker & caching
-	*  <td> last child (hours) should break onto line by itself>
+	*  <td> last child (hours) should break onto line by itself>??
   */
 
 body {
@@ -97,23 +80,25 @@ footer a {
 /* ====================== Navigation ====================== */
 
 /* Display nav menu items side by side */
-nav a {
-    display: inline;
+nav {
+    background-color: #eee;
+		display: inline;
 		font-size: 1em;
 		margin: 0;
 		width: 100%;
 		padding: 10px 40px;
 }
 
-#breadcrumb {
-	background-color: #eee;
+#breadcrumb li {
+	display: inline;
 	list-style: none;
 	font-size: 1em;
+	padding: 10px 40px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
 #breadcrumb nav+nav:before {
-    padding: 8px;
+		padding: 8px;
     color: black;
     content: "/\00a0";
 }
@@ -148,6 +133,7 @@ nav a {
   font-size: 1.1em;
   font-weight: 100;
   padding: 5px 0 0 5px;
+	margin: 0;
 }
 
 .filter-options select {
@@ -163,22 +149,28 @@ nav a {
 
 /* ====================== Restaurant Listing ====================== */
 
+#section {
+	background-color: #f3f3f3;
+	}
+
 #restaurants-list {
-  background-color: #f3f3f3;
+	background-color: #f3f3f3;
 	text-align: left;
 	list-style: none;
-	padding: 0;
-	margin: 5%;
+	align-items: center;
+	padding: 25px;
+	margin: 0;
 }
 
 #restaurants-list li {
 	border: 2px solid #ccc;
-	padding: 25px;
-	margin: 0 0 5% 0;
+	background-color: #fff;
+	padding: 20px;
+	margin: 8px auto;
 }
 
 .restaurant-img {
-  max-width: 100%;
+  width: 100%;
 }
 
 #restaurants-list p {
@@ -201,16 +193,15 @@ nav a {
 
 /* ====================== Restaurant Details ====================== */
 
- #restaurant-reviews{
-	display: flex;
-	flex-wrap: wrap;
-	max-width: 100%;
-	margin: 5%;
+#restaurant-reviews{
+ width: 100%;
 }
 
-#restaurant-container{
-	padding: 5%;
-	max-width: 100%;
+#restaurant-container {
+	width: 90%;
+	align-content: center;
+	padding: 20px;
+	margin: auto;
 }
 
 #restaurant-cuisine {
@@ -249,22 +240,8 @@ nav a {
 }
 
 #reviews-container {
-  max-width: 100%;
-}
-
-#reviews-list li {
-  background-color: #fff;
-  border: 2px solid #252831;
-	list-style-type: none;
-  display: block;
-  margin: 0 0 5%;
-  max-width: 100%;
-}
-
-#reviews-list li p {
-	font-size: 0.8em;
-	line-height: 1.4em;
-  margin: 0 10px 10px 10px;
+  width: 90%;
+	padding: 20px;
 }
 
 #reviews-list .name {
@@ -291,4 +268,19 @@ nav a {
 	text-transform: uppercase;
 	width: 25%;
 	padding: 4px 0 4px 10px;
+}
+
+#reviews-list li {
+  background-color: #fff;
+  border: 2px solid #252831;
+	list-style-type: none;
+  display: block;
+  margin: 0 0 5%;
+  max-width: 100%;
+}
+
+#reviews-list li p {
+	font-size: 0.8em;
+	line-height: 1.4em;
+  margin: 0 10px 10px 10px;
 }
